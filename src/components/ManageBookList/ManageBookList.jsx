@@ -8,7 +8,7 @@ import { userInfoContext } from "../../App";
 const ManageBookList = ({ book, index }) => {
     const {loadAllBook} = useContext(userInfoContext);
     const deleteBook = (id) => {
-        fetch(`http://localhost:5000/deleteBook/${id}`, {
+        fetch(`https://pumpkin-pie-72688.herokuapp.com/deleteBook/${id}`, {
             method: 'DELETE',
             headers: {'Content-Type': 'application/json'}
         })

@@ -25,7 +25,7 @@ const AddBook = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:5000/addBook", {
+    fetch("https://pumpkin-pie-72688.herokuapp.com/addBook", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),

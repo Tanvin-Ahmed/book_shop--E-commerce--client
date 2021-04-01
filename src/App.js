@@ -23,7 +23,7 @@ function App() {
   // load All Book
   const [bookList, setBookList] = useState([]);
   const loadAllBook = () => {
-    fetch("http://localhost:5000/books")
+    fetch("https://pumpkin-pie-72688.herokuapp.com/books")
       .then((res) => res.json())
       .then((data) => {
         setBookList(data);

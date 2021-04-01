@@ -8,7 +8,7 @@ const Checkout = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
   useEffect(() => {
-    fetch(`http://localhost:5000/chosenBook/${id}`)
+    fetch(`https://pumpkin-pie-72688.herokuapp.com/chosenBook/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);
@@ -33,7 +33,7 @@ const Checkout = () => {
       newCheckout.email = email;
       newCheckout.displayName = displayName;
 
-    fetch('http://localhost:5000/placeOrder', {
+    fetch('https://pumpkin-pie-72688.herokuapp.com/placeOrder', {
         method: 'POST', 
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify(newCheckout)

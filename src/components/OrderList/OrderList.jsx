@@ -7,7 +7,7 @@ import { userInfoContext } from "../../App";
 const OrderList = ({ order, index, loadUserOrders }) => {
   const { loggedInUser } = useContext(userInfoContext);
   const handleCancelOrder = (id) => {
-    fetch(`http://localhost:5000/cancelOrder/${id}`, {
+    fetch(`https://pumpkin-pie-72688.herokuapp.com/cancelOrder/${id}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
     })

@@ -11,7 +11,7 @@ const Order = () => {
   const [orders, setOrders] = useState([]);
   const loadUserOrders = (loggedInUser) => {
     fetch(
-      `http://localhost:5000/getCurrentUserOrder?email=${loggedInUser.email}`
+      `https://pumpkin-pie-72688.herokuapp.com/getCurrentUserOrder?email=${loggedInUser.email}`
     )
       .then((res) => res.json())
       .then((data) => {

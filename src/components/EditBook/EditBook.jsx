@@ -12,7 +12,7 @@ const EditBook = () => {
   const [update, setUpdate] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5000/chosenBook/${id}`)
+    fetch(`https://pumpkin-pie-72688.herokuapp.com/chosenBook/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setUpdate(data);
@@ -30,7 +30,7 @@ const EditBook = () => {
     console.log(newUpdate);
 
 
-      fetch(`http://localhost:5000/update/${id}`, {
+      fetch(`https://pumpkin-pie-72688.herokuapp.com/update/${id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newUpdate),
