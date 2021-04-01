@@ -1,24 +1,65 @@
-import logo from './logo.svg';
 import './App.css';
+import NavBar from './components/Navbar/NavBar';
+import Home from './components/Home/Home';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+import NoMatch from './components/NoMatch/NoMatch';
+import Login from './components/Login/Login';
+import { createContext, useState } from 'react';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import Checkout from './components/CheckOut/Checkout';
+import Admin from './components/Admin/Admin';
+import Order from './components/Order/Order';
+
+export const userInfoContext = createContext();
 
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState({});
+  const [loadingSpinner, setLoadingSpinner] = useState(false);
+
+  // load All Book
+  const [bookList, setBookList] = useState([]);
+  const loadAllBook = () => {
+    fetch("http://localhost:5000/books")
+      .then((res) => res.json())
+      .then((data) => {
+        setBookList(data);
+        setLoadingSpinner(false);
+      });
+  };
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <userInfoContext.Provider value={{ loggedInUser, setLoggedInUser, loadingSpinner, setLoadingSpinner,loadAllBook, bookList }}>
+      <Router>
+        <NavBar />
+        <Switch>
+          <Route exact path='/'>
+            <Home />
+          </Route>
+          <Route path='/home'>
+            <Home />
+          </Route>
+          <Route path='/login'>
+            <Login />
+          </Route>
+          <PrivateRoute path='/checkout/:id'>
+            <Checkout />
+          </PrivateRoute>
+          <PrivateRoute path='/order'>
+            <Order/>
+          </PrivateRoute>
+          <PrivateRoute path='/admin'>
+            <Admin />
+          </PrivateRoute>
+          <Route path='*'>
+            <NoMatch />
+          </Route>
+        </Switch>
+      </Router>
+    </userInfoContext.Provider>
   );
 }
 

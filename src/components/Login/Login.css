@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+}
+.form-container{
+    width: 23rem;
+    text-align: center;
+}
+
+form{
+    width: 100%;
+}
+.choose-btn{
+    padding: 0.2rem 2.7rem;
+    border: none;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.googleIcon{
+    width: 2rem;
+}

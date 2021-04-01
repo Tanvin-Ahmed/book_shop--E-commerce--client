@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.admin-panel{
+    background-image: linear-gradient(to bottom, rgb(42, 46, 51), rgb(105, 114, 124));
+    height: 100vh;
+    position: fixed;
+    padding: 2rem;
+}
+
+.admin-panel .link {
+    margin: 1rem 0;
+}
+
+.admin{
+    margin-top: 4rem;
+    overflow-x: hidden;
+}
+
+@media(max-width: 991px) {
+    .admin{
+        margin-top: 3.9rem;
+    }
+}
+@media(max-width: 767px) {
+    .admin-panel{
+        text-align: center;
+        position: initial;
+        height: auto;
+        padding: 0.7rem 2rem 0.1rem 2rem;
+        margin-top: 0.7rem;
+    }
+    .panel-header{
+        padding: 0;
+        margin: 0;
+    }
+    .admin-panel ul{
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+    }
+    .admin-panel .link{
+        margin: 0;
+    }
+}
+@media(max-width:383px){
+    .admin{
+        margin-top: 3.6rem;
+    }
+}
+@media(max-width:322px){
+    .admin{
+        margin-top: 4.5rem;
+    }
+    .admin-panel{
+        margin-top: 0;
+    }
+}

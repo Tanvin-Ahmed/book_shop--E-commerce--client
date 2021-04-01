@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.product-checkout{
+    margin-top: 8rem;
+}
+
+.chosenProduct-card{
+    box-shadow: 0px 0px 30px 5px rgb(191, 196, 206);
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+#card-img{
+    height: 28rem;
+}

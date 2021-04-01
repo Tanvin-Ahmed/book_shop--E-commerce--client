@@ -1,0 +1,18 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.manage-book{
+    margin-left: 14rem;
+}
+@media(max-width: 767px){
+    .manage-book{
+        margin:auto;
+    }
+}
+@media(max-width: 453px){
+    .manage-book{
+        overflow-x: auto;
+    }
+}

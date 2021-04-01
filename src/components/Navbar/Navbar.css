@@ -1,0 +1,12 @@
+.nav-header{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.nav-img{
+    width: 3rem;
+}
+
+@media(max-width:383px){
+    .nav-header{
+        font-size: 20px;
+    }
+}

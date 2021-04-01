@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+input[type="file"] {
+    display: none;
+}
+.add-book{
+    margin-left: 14rem;
+}
+.form-part{
+    display: flex;
+}
+
+@media(max-width: 767px){
+    .add-book{
+        margin:auto;
+    }
+    .add-book-header{
+        text-align: center;
+    }
+}
+@media(max-width: 439px){
+    .form-part{
+        display: initial;
+    }
+}
