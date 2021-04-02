@@ -25,6 +25,8 @@ const Order = () => {
     loadUserOrders(loggedInUser);
   }, [loggedInUser, setLoadingSpinner]);
 
+  const totalPrice = orders.reduce((totalPrice, order) => totalPrice + Number(order.price), 0);
+
   return (
     <div className="mt-5 p-5">
       <h2 className="text-center mb-5">Order Review</h2>
@@ -55,6 +57,16 @@ const Order = () => {
               ></OrderList>
             ))}
           </tbody>
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Item: {orders.length} </th>
+              <th scope="col">Quantity: {orders.length} </th>
+              <th scope="col"></th>
+              <th scope="col">Total Price: {totalPrice} $ </th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
         </table>
       </div>
     </div>
