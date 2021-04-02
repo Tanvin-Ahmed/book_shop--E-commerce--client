@@ -12,6 +12,8 @@ const ManageBook = () => {
     bookList,
   } = useContext(userInfoContext);
 
+  const [searchTerm, setSearchTerm] = useState("");
+
   useEffect(() => {
     setLoadingSpinner(true);
     loadAllBook();
@@ -19,6 +21,12 @@ const ManageBook = () => {
 
   return (
     <div className="p-4 mt-5 manage-book">
+      <input
+        onChange={(e) => setSearchTerm(e.target.value)}
+        className="form-control bg-dark text-light"
+        type="text"
+        placeholder="Search Book by Name for update or delete"
+      />
       {loadingSpinner && (
         <div className="spinner">
           <Spinner animation="border" variant="dark" />
@@ -37,13 +45,23 @@ const ManageBook = () => {
           </thead>
 
           <tbody>
-            {bookList.map((book, index) => (
-              <ManageBookList
-                key={book._id}
-                book={book}
-                index={index}
-              ></ManageBookList>
-            ))}
+            {bookList
+              .filter((val) => {
+                if (searchTerm === "") {
+                  return val;
+                } else if (
+                  val.name.toLowerCase().includes(searchTerm.toLowerCase())
+                ) {
+                  return val;
+                }
+              })
+              .map((book, index) => (
+                <ManageBookList
+                  key={book._id}
+                  book={book}
+                  index={index}
+                ></ManageBookList>
+              ))}
           </tbody>
         </table>
       )}

@@ -5,10 +5,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { Spinner } from "react-bootstrap";
 import { userInfoContext } from "../../App";
-import headerImg from '../../img/logo/header.png';
-import facebook from '../../img/icon/Facebook.png';
-import twitter from '../../img/icon/Twitter.png';
-import youtube from '../../img/icon/YouTube.png';
+import headerImg from "../../img/logo/header.png";
+import facebook from "../../img/icon/Facebook.png";
+import twitter from "../../img/icon/Twitter.png";
+import youtube from "../../img/icon/YouTube.png";
 
 const Home = () => {
   const {
@@ -17,6 +17,8 @@ const Home = () => {
     loadAllBook,
     bookList,
   } = useContext(userInfoContext);
+
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     setLoadingSpinner(true);
@@ -44,20 +46,18 @@ const Home = () => {
             </div>
             <div className="col-md-6 col-sm-12">
               <div className="part m-auto img">
-                <img className="header-img" src={headerImg} alt=""/>
+                <img className="header-img" src={headerImg} alt="" />
               </div>
             </div>
           </div>
         </div>
         <div className="search-bar text-center mb-5">
-          <div class="input-group">
-            <input class="form-control" type="text" placeholder="Search Book" />
-            <div class="input-group-append">
-              <button class="input-group-text btn btn-info">
-                <FontAwesomeIcon icon={faSearch} /> Search
-              </button>
-            </div>
-          </div>
+          <input
+            onChange={(e) => setSearchTerm(e.target.value)}
+            class="form-control"
+            type="text"
+            placeholder="Search Book by Name"
+          />
         </div>
         {loadingSpinner && (
           <div className="spinner">
@@ -65,21 +65,37 @@ const Home = () => {
           </div>
         )}
         <div class="row row-cols-1 row-cols-md-3 g-4">
-          {bookList.map((book) => (
-            <Books key={book._id} book={book}></Books>
-          ))}
+          {!loadingSpinner &&
+            bookList
+              .filter((val) => {
+                if (searchTerm === "") {
+                  return val;
+                } else if (
+                  val.name.toLowerCase().includes(searchTerm.toLowerCase())
+                ) {
+                  return val;
+                }
+              })
+              .map((book) => <Books key={book._id} book={book}></Books>)}
         </div>
       </div>
       <footer className="bg-dark p-5 mt-5">
-            <h2 className="text-light text-center">
-              Follow Us
-            </h2>
-            <h4 className="text-light text-center">PROGRAMMING BOOK STORE</h4>
-            <div className="text-center">
-              <a href="https://www.facebook.com/rokomari/" target="_blank"><img className="footer-icon" src={facebook} alt=""/></a>
-              <a href="https://twitter.com/rokomaridotcom?lang=en" target="_blank"><img className="footer-icon" src={twitter} alt=""/></a>
-              <a href="https://www.youtube.com/channel/UCMtGHnB-gqavI2L0d8SP2xg" target="_blank"><img className="footer-icon" src={youtube} alt=""/></a>
-            </div>
+        <h2 className="text-light text-center">Follow Us</h2>
+        <h4 className="text-light text-center">PROGRAMMING BOOK STORE</h4>
+        <div className="text-center">
+          <a href="https://www.facebook.com/rokomari/" target="_blank">
+            <img className="footer-icon" src={facebook} alt="" />
+          </a>
+          <a href="https://twitter.com/rokomaridotcom?lang=en" target="_blank">
+            <img className="footer-icon" src={twitter} alt="" />
+          </a>
+          <a
+            href="https://www.youtube.com/channel/UCMtGHnB-gqavI2L0d8SP2xg"
+            target="_blank"
+          >
+            <img className="footer-icon" src={youtube} alt="" />
+          </a>
+        </div>
       </footer>
     </div>
   );
