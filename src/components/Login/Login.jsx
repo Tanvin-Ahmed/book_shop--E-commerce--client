@@ -113,9 +113,9 @@ const Login = () => {
             }
             {
                 loadingSpinner && <div>
-                     <Spinner animation="grow" variant="warning" size="sm" />
-                     <Spinner animation="grow" variant="info" size="sm" />
-                     <Spinner animation="grow" variant="light" size="sm" />
+                     <Spinner animation="grow" variant="warning" size="sm" />{" "}
+                     <Spinner animation="grow" variant="info" size="sm" />{" "}
+                     <Spinner animation="grow" variant="light" size="sm" />{" "}
                 </div>
             }
             <br/>
