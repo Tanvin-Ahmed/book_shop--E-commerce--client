@@ -1,8 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./Home.css";
 import Books from "../Books/Books";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { Spinner } from "react-bootstrap";
 import { userInfoContext } from "../../App";
 import headerImg from "../../img/logo/header.png";
