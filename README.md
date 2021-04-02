@@ -27,4 +27,4 @@ It's an E-Commerce Web Project.
 I hope you also like this cool project. 
 
 ###### Wanna show this cool project live site...!?
-Click Here[programming-book-store-web-live-project](https://github.com/facebook/create-react-app).
+Click Here[programming-book-store-web-live-link](https://assignment10-book-store.web.app/).
